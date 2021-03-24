@@ -85,8 +85,8 @@ public class BlockView extends Frame implements ActionListener, MouseMotionListe
 		imageInformation.setBlockMargin(10);
 
 		//ブロックの行列
-		imageInformation.setBlockRow(5);
-		imageInformation.setBlockColumn(3);
+		imageInformation.setBlockRow(3);
+		imageInformation.setBlockColumn(5);
 		imageInformation.blockset();
 
 		//モード
@@ -94,6 +94,7 @@ public class BlockView extends Frame implements ActionListener, MouseMotionListe
 		//0 = 初期状態, 1 = 実行中, 2 = ボールが落ちた, 3 = ブロックが全消
 	}
 
+	//表示情報の設定
 	public void setViewInfo() {
 
 		int buttonHeight = 30;
@@ -123,7 +124,7 @@ public class BlockView extends Frame implements ActionListener, MouseMotionListe
 		imageInformation.setRacketHeight(10);
 
 		//ラケットの位置情報をセット
-		imageInformation.setRacketX((widthRange - imageInformation.getRacketWidth()) / 2);
+		imageInformation.setRacketX((widthRange - imageInformation.getRacketWidth()) / 2 );
 		imageInformation.setRacketY((heightRange - imageInformation.getRacketHeight()));
 
 		//描画領域幅と高さの情報をセット
@@ -178,7 +179,8 @@ public class BlockView extends Frame implements ActionListener, MouseMotionListe
 	}
 
 	//配置ボタンの実行処理
-	public void button(ActionEvent a) {
+	@Override
+	public void actionPerformed(ActionEvent a) {
 
 		//条件3
 		if( a.getSource().equals(startButton)) {
@@ -198,12 +200,13 @@ public class BlockView extends Frame implements ActionListener, MouseMotionListe
 	}
 
 	//マウスが移動した処理
-	public void mouseMove(MouseEvent m) {
+	@Override
+	public void mouseMoved(MouseEvent m) {
 
 		int mousePoint;
 
 		//条件6
-		if (m.getX() + imageInformation.getRacketWidth() > imageInformation.getDrawingRangeWidth()) {
+		if (m.getX() + imageInformation.getRacketWidth() < imageInformation.getDrawingRangeWidth()) {
 
 			//領域内に収まるように、マウスの位置を保持
 			mousePoint = m.getX();
@@ -223,15 +226,7 @@ public class BlockView extends Frame implements ActionListener, MouseMotionListe
 
 
 	}
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		// TODO 自動生成されたメソッド・スタブ
 
-	}
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO 自動生成されたメソッド・スタブ
 
-	}
 
 }

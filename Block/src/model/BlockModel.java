@@ -19,7 +19,7 @@ public class BlockModel {
 		int arySize = b.getBlockColumn() * b.getBlockRow();
 
 		//条件1
-		if (ballCenterY + ballWidth >= racketY && ballCenterY + ballHeight <= racketY + racketWidth && ballCenterX + ballWidth >= racketX && ballCenterX <= racketX + racketWidth) {
+		if (ballCenterY + ballWidth >= racketY && ballCenterY + ballHeight <= racketY + racketHeight && ballCenterX + ballWidth >= racketX && ballCenterX <= racketX + racketWidth) {
 			ballNextY = -2;
 			//条件2
 			if (ballCenterX < racketX || ballCenterX + ballWidth > racketX + racketWidth) {

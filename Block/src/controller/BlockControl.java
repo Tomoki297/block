@@ -22,10 +22,12 @@ public class BlockControl extends Thread{
 	}
 
 	//ブロック制御用スレッド
-	public void thread() throws InterruptedException {
+	public void thread() {
 
 		view.draw(bean);
-		Thread.sleep(100);
+		try {
+			Thread.sleep(100);
+
 
 		//無限ループ
 		for (int i = 0; i < 1;) {
@@ -61,6 +63,11 @@ public class BlockControl extends Thread{
 			Thread.sleep(bean.getBallSpeed());
 
 		}
+			} catch (InterruptedException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+
 	}
 
 
